@@ -2,6 +2,7 @@ curl "http://localhost:4741/listings/${ID}" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \
+  --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "listing": {
       "listing_id": "'"${L_ID}"'",

@@ -16,7 +16,7 @@ class ListingsController < ProtectedController
 
   # POST /listings
   def create
-    @listing = Listing.new(listing_params)
+    @listing = current_user.listings.build(listing_params)
 
     if @listing.save
       render json: @listing, status: :created
@@ -41,7 +41,7 @@ class ListingsController < ProtectedController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
-      @listing = Listing.find(params[:id])
+      @listing = current_user.listings.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
