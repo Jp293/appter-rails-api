@@ -5,7 +5,6 @@ curl "http://localhost:4741/listings" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "listing": {
-      "listing_id": "'"${L_ID}"'",
       "address": "'"${ADDRESS}"'",
       "start_date": "'"${SDATE}"'",
       "end_date": "'"${EDATE}"'",

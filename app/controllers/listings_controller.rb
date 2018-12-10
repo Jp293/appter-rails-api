@@ -16,10 +16,11 @@ class ListingsController < ProtectedController
 
   # POST /listings
   def create
-    @listing = current_user.listings.build(listing_params)
+    @listing = current_user.listings.create(listing_params)
 
     if @listing.save
       render json: @listing, status: :created
+    else
       render json: @listing.errors, status: :unprocessable_entity
     end
   end
@@ -46,6 +47,6 @@ class ListingsController < ProtectedController
 
     # Only allow a trusted parameter "white list" through.
     def listing_params
-      params.require(:listing).permit(:listing_id, :address, :start_date, :end_date, :price_night)
+      params.require(:listing).permit(:address, :start_date, :end_date, :price_night)
     end
 end
