@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2018_12_10_181839) do
 
   create_table "listings", force: :cascade do |t|
     t.string "address"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.string "start_date"
+    t.string "end_date"
     t.integer "price_night"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
