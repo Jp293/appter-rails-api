@@ -4,7 +4,7 @@ class ListingsController < ProtectedController
 
   # GET /listings
   def index
-    @listings = Listing.all
+    @listings = Listing.all.order(id: :desc)
 
     render json: @listings
   end
