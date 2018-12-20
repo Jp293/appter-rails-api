@@ -3,10 +3,10 @@
 *My objective was to develop a full-stack web application that creates lodging listings to help users find accomodations. The app is intended to accept a users' location, dates (check-in/out), and price-per-night as parameters for its searches. Appter also enables a dual interface between renters (individuals renting-out their apartments) and guests.
 
 
-* [Back-end repo]()
-* [Front-end repo]()
-* [Meal Tracker Application]()
-* [Heroku Server]()
+* [Front-end repo](https://github.com/Jp293/appter-client)
+* [Appter Application](https://jp293.github.io/appter-client/)
+* [Back-end repo](https://github.com/Jp293/appter-rails-api)
+* [Heroku Server](https://appter.herokuapp.com/)
 
 ## Technologies Used
 
@@ -19,7 +19,15 @@
 
 ## Thought Process & Execution
 
-*
+* The plan to execute the back-end section of the project was to generate a scaffold with my resource (listings) and that table would have the following columns:
+  -Address (string)
+  -Check In (date)
+  -Check Out (date)
+  -Price Per night (Integer)
+* Second I decided to add user and listings relationships so that each user has access to the resources in the backend.
+* Test front-end and back-end functionality to ensure the right API calls are retrieving the right kind of data and that the data is accesible to the current user.
+* Lastly I deployed the back-end repo to Heroku.  
+
 
 
 ## ERD (entity relationship diagram)
