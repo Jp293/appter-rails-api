@@ -1,6 +1,6 @@
 ## Objective
 
-*My objective was to develop a full-stack web application that creates lodging listings to help users find accomodations. The app is intended to accept a users' location, dates (check-in/out), and price-per-night as parameters for its searches. Appter also enables a dual interface between renters (individuals renting-out their apartments) and guests.
+* My objective was to develop a full-stack web application that creates lodging listings to help users find accomodations. The app is intended to accept a users' location, dates (check-in/out), and price-per-night as parameters for its searches. Appter also enables a dual interface between renters (individuals renting-out their apartments) and guests.
 
 
 * [Front-end repo](https://github.com/Jp293/appter-client)
@@ -26,7 +26,7 @@
   -Price Per night (Integer)
 * Second I decided to add user and listings relationships so that each user has access to the resources in the backend.
 * Test front-end and back-end functionality to ensure the right API calls are retrieving the right kind of data and that the data is accesible to the current user.
-* Lastly I deployed the back-end repo to Heroku.  
+* Lastly I deployed the back-end repo to Heroku.
 
 
 
