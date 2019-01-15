@@ -5,9 +5,9 @@ curl "http://localhost:4741/guests" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "guest": {
-      "listing_id": "'"${LID}"'",
       "first_name": "'"${FIRST}"'",
-      "last_name": "'"${LAST}"'"
+      "last_name": "'"${LAST}"'",
+      "listing_id": "'"${LID}"'"
     }
   }'
 

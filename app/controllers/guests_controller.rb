@@ -1,23 +1,25 @@
 class GuestsController < ProtectedController
-  before_action :set_listing, :set_guest, only: [:show, :update, :destroy]
+  before_action :set_listing, only: [:show, :update, :destroy]
   attr_reader :current_user
 
   # GET /guests
   def index
-    @guests = current_user.listings.find(params[:listing_id]).guests
+     # binding.pry
+    @guests = current_user.listings.find(params[:guest][:listing_id]).guests
 
     render json: @guests
   end
 
   # GET /guests/1
   def show
-    @guest = current_user.listings.find(params[:listing_id]).guests.find(params[:guest_id])
+    @guest = current_user.listings.find(params[:guest][:listing_id]).guests.find(params[:guest_id])
     render json: @guest
   end
 
   # POST /guests
   def create
-    @guest = current_user.listings.find(params[:listing_id]).guests.build(guests_params)
+     # binding.pry
+    @guest = current_user.listings.find(params[:guest][:listing_id]).guests.build(guest_params)
 
     if @guest.save
       render json: @guest, status: :created
@@ -39,7 +41,8 @@ class GuestsController < ProtectedController
 
   # DELETE /guests/1
   def destroy
-    @guest = current_user.listings.find(params[:listing_id]).guests.find(params[:guest_id])
+    # binding.pry
+    @guest = current_user.listings.find(params[:guest][:listing_id]).guests.find(params[:guest_id])
     @guest.destroy
   end
 
@@ -55,6 +58,6 @@ class GuestsController < ProtectedController
 
     # Only allow a trusted parameter "white list" through.
     def guest_params
-      params.require(:guest).permit(:first_name, :last_name)
+      params.require(:guest).permit(:listing_id, :first_name, :last_name)
     end
 end
