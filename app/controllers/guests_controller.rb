@@ -1,10 +1,10 @@
+ require 'pry'
 class GuestsController < ProtectedController
   before_action :set_listing, only: [:show, :update, :destroy]
   attr_reader :current_user
 
   # GET /guests
   def index
-     # binding.pry
     @guests = current_user.listings.find(params[:guest][:listing_id]).guests
 
     render json: @guests
@@ -18,7 +18,6 @@ class GuestsController < ProtectedController
 
   # POST /guests
   def create
-     # binding.pry
     @guest = current_user.listings.find(params[:guest][:listing_id]).guests.build(guest_params)
 
     if @guest.save
@@ -29,32 +28,32 @@ class GuestsController < ProtectedController
   end
 
   # PATCH/PUT /guests/1
-  def update
-    @guest = current_user.listings.find(params[:listing_id]).guests.find(params[:guest_id])
-
-    if @guest.update(guest_params)
-      render json: @guest
-    else
-      render json: @guest.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   @guest = current_user.listings.find(params[:listing_id]).guests.find(params[:guest_id])
+  #
+  #   if @guest.update(guest_params)
+  #     render json: @guest
+  #   else
+  #     render json: @guest.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /guests/1
   def destroy
-    # binding.pry
-    @guest = current_user.listings.find(params[:guest][:listing_id]).guests.find(params[:guest_id])
+    @guest = @listing.guests.find(params[:id])
     @guest.destroy
+
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
-      @listing = current_user.listings.find(params[:id])
+      @listing = current_user.listings.find(params[:guest][:listing_id])
     end
 
-    def set_guest
-      @guest = Guest.find(params[:id])
-    end
+    # def set_guest
+    #    # @guest = Guest.find(params[:id])
+    # end
 
     # Only allow a trusted parameter "white list" through.
     def guest_params
