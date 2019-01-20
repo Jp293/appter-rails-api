@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   # RESTful routes
   resources :examples, except: %i[new edit]
+  resources :guests, except: %i[new edit]
 
   # Double check if %i[new edit] are the appropiate attributes.
 
