@@ -1,4 +1,4 @@
- require 'pry'
+
 class GuestsController < ProtectedController
   before_action :set_listing, only: [:show, :update, :destroy]
   attr_reader :current_user
